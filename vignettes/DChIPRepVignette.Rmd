@@ -40,7 +40,7 @@ library(knitcitations)
 
 # Introduction to the DChIPRep package
 
-The package implements the analysis strategy of  `r citep("10.15252/msb.20145776") `. 
+The package implements the analysis strategy of  `r citep("Chabbert_2015") `. 
 Along with an experimental protocol to multiplex ChIP--Seq experiments, 
 `r citep("Chabbert_2015")` developped a methodology to assess differences 
 between chromatin modification profiles in replicated ChIP--Seq studies 

@@ -1,43 +1,13 @@
-DChIPRep News
-=========================
-
-Changes in Version 0.99.0
+CHANGES IN VERSION 1.0.1
 -------------------------
 
-    * initial devel version
-    
-    
-Changes in Version 0.99.1
+BUG FIXES
+
+    * fixed a literature query in the vignette that tried
+    to resolve a DOI via knitcitations::citep() and would often
+    lead to a compilation error on the Bioconductor servers.
+
+CHANGES IN VERSION 1.0.0
 -------------------------
 
-    * fixed typos in the documentation
-    * clarified dimensions of the count tables in the vignette
-    * added additional checks to the data import functions
-    
-    
-Changes in Version 0.99.2
--------------------------
-
-    * updated general package help
-    * small fixes in the vignette
-    * updated newsfile
-    
-    
-Changes in Version 0.99.3
--------------------------
-
-    * updated the python script to be executable
-    * python script help in the vignette is now "live"
-    * added negative tests for empty and flawed input in test_dataInput.R
-    * small fixes in the tests and the source code
-    
-    
-Changes in Version 0.99.4
--------------------------
-
-    * python script help in the vignette has been switched to static again
-    
-Changes in Version 0.99.5
--------------------------
-
-    * changed qplot() calls to standard evaluation based calls using ggplot() 
+    * initial Bioc 3.2 release
