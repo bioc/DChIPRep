@@ -1,23 +1,44 @@
 Package: DChIPRep
 Title: DChIPRep - Analysis of chromatin modification ChIP-Seq data with
-        replication
-Version: 1.0.1
+    replication
+Version: 1.0.2
 Authors@R: c(person("Bernd", "Klaus", email = "bernd.klaus@embl.de",
         role = c("aut", "cre")), person("Christophe", "Chabbert", email
         = "christophe.chabbert@embl.de", role = "aut"))
 Description: The DChIPRep package implements a methodology to assess
-        differences between chromatin modification profiles in
-        replicated ChIP-Seq studies as described in Chabbert et. al -
-        http://www.dx.doi.org/10.15252/msb.20145776.
-Depends: R (>= 3.2.0)
-Imports: methods, ggplot2, DESeq2, fdrtool, reshape2, GenomicRanges,
-        smoothmest, plyr, tidyr, assertthat, S4Vectors
+    differences between chromatin modification profiles in
+    replicated ChIP-Seq studies as described in Chabbert et. al -
+    http://www.dx.doi.org/10.15252/msb.20145776.
+Depends:
+    R (>= 3.2.0)
+Imports:
+    methods,
+    ggplot2,
+    DESeq2,
+    fdrtool,
+    reshape2,
+    GenomicRanges,
+    smoothmest,
+    plyr,
+    tidyr,
+    assertthat,
+    S4Vectors
 License: MIT + file LICENCE
 LazyData: true
-Suggests: testthat, BiocStyle, knitr, rmarkdown, knitcitations
-Collate: 'AllClasses.R' 'AllGenerics.R' 'DChipRep.R' 'dataImport.R'
-        'documentData.R' 'methods.R' 'plottingFunctions.R'
-        'runTesting.R'
+Suggests:
+    testthat,
+    BiocStyle,
+    knitr,
+    rmarkdown
+Collate:
+    'AllClasses.R'
+    'AllGenerics.R'
+    'DChipRep.R'
+    'dataImport.R'
+    'documentData.R'
+    'methods.R'
+    'plottingFunctions.R'
+    'runTesting.R'
 VignetteBuilder: knitr
 biocViews: Sequencing, ChIPSeq
 SystemRequirements: Python 2.7, HTSeq (>= 0.6.1), numpy, argparse, sys

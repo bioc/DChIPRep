@@ -1,6 +1,7 @@
 ---
 title: "Introduction to the DChIPRep package"
 author: "Bernd Klaus and Christophe Chabbert"
+bibliography: references.bib
 date: "`r doc_date()`"
 output:
    BiocStyle::html_document:
@@ -34,15 +35,14 @@ packages that are necessary  to run the vignette.
 library(DChIPRep)
 library(ggplot2)
 library(DESeq2)
-library(knitcitations)
 ```
 
 
 # Introduction to the DChIPRep package
 
-The package implements the analysis strategy of  `r citep("Chabbert_2015") `. 
+The package implements the analysis strategy of  [@Chabbert_2015]. 
 Along with an experimental protocol to multiplex ChIP--Seq experiments, 
-`r citep("Chabbert_2015")` developped a methodology to assess differences 
+[@Chabbert_2015] developped a methodology to assess differences 
 between chromatin modification profiles in replicated ChIP--Seq studies 
 that builds on the packages `r Biocpkg("DESeq2")` and 
 `r CRANpkg("fdrtool")`. The package also includes a preprocessing script in Python
@@ -350,7 +350,7 @@ significance.
 
 Points corresponding to significant positions are colored black in both of the conditions. 
 The replicate--samples are sumarized by using a positionwise robust Huber estimator 
-for the mean `r citep("10.1016/j.csda.2010.05.001")`. 
+for the mean [@Hampel_2011]. 
 
 The function returns the plot as a ggplot2 object that can be modified afterwards.
 
@@ -360,7 +360,7 @@ sigPlot <- plotSignificance(imDataFromMatrices)
 sigPlot
 ```
 
-This plot is similar to Figure S17B of `r citep("Chabbert_2015")`. We see an 
+This plot is similar to Figure S17B of [@Chabbert_2015]. We see an 
 enrichment for significant position near the end of the downstream window considered. 
 
 ## Produce TSS plots 
@@ -374,7 +374,7 @@ profilePlot <- plotProfiles(imDataFromMatrices)
 profilePlot
 ```
 
-This plot is similar to Figure 5B of `r citep("Chabbert_2015")`.
+This plot is similar to Figure 5B of [@Chabbert_2015].
 
 # Session information
 
@@ -383,12 +383,6 @@ sessionInfo()
 ```
 
 
-```{r writeBibliography, echo=FALSE, message=FALSE, eval=FALSE}
-write.bibtex(file="references.bib")
-```
 
 # References
 
-```{r refs, results='asis', echo=FALSE, message=FALSE, eval=TRUE}
-bibliography()
-```
