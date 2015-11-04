@@ -1,7 +1,7 @@
 Package: DChIPRep
 Title: DChIPRep - Analysis of chromatin modification ChIP-Seq data with
     replication
-Version: 1.0.2
+Version: 1.0.3
 Authors@R: c(person("Bernd", "Klaus", email = "bernd.klaus@embl.de",
         role = c("aut", "cre")), person("Christophe", "Chabbert", email
         = "christophe.chabbert@embl.de", role = "aut"))
@@ -45,3 +45,4 @@ SystemRequirements: Python 2.7, HTSeq (>= 0.6.1), numpy, argparse, sys
 NeedsCompilation: no
 Author: Bernd Klaus [aut, cre], Christophe Chabbert [aut]
 Maintainer: Bernd Klaus <bernd.klaus@embl.de>
+RoxygenNote: 5.0.0

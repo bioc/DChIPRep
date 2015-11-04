@@ -51,7 +51,7 @@ runTesting.DChIPRepResults <- function(object,
 #'
 #'
 #' @return a modified \link{DChIPRepResults} object containing the testing results
-#' @seealso \code{\link[DESeq2]{results}}
+#' @seealso \code{\link{resultsDChIPRep}}
 #' @export
 #' @importFrom fdrtool fdrtool
 #' @importFrom DESeq2 estimateDispersions

@@ -60,8 +60,6 @@ setMethod("DESeq2Data<-", signature(object="DChIPRepResults",
 #'
 #'
 #' @export
-#'
-#'
 #' @return A compact representation of the DChIPRepResults object
 #'
 #' @examples
