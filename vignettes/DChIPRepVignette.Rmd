@@ -216,7 +216,7 @@ samples that looks like this:
 
 ```{r sampleTable, markup = 'asis', message = TRUE}
 data(exampleSampleTable)
-table(exampleSampleTable)
+exampleSampleTable
 ```
 
 It gives the names for the input count files in the columns **ChIP** and **Input**
@@ -242,7 +242,7 @@ We use the down--sampled raw data that come with the package to illustrate
 the function use.
 
 By default the feature ID column is assumed to have the name **name**, 
-however this can specified in the call to  **importData* via the **ID**
+however this can specified in the call to  **importData** via the **ID**
 argument.
 
 ```{r data_import_R_Py, dependson="sampleTable"}

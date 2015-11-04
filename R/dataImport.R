@@ -17,7 +17,6 @@
 #'
 #'
 #' @export
-#'
 #' @return a matrix with the ID column removed
 #' @examples
 #' data(exampleSampleTable)
@@ -65,7 +64,6 @@ getMATfromDataFrame <- function(df, ID="name"){
 #' @param trim  the trimming percentage for the trimmed mean.
 #'
 #' @export
-#'
 #' @return a vector containing the summarized counts per condition
 #'
 #'
@@ -175,7 +173,6 @@ testSampleTable <- function(sampleTable){
 #' @importFrom DESeq2 DESeqDataSetFromMatrix normalizationFactors normalizationFactors<-
 #'
 #' @export
-#'
 #' @examples
 #' data(exampleSampleTable)
 #' data(exampleInputData)
