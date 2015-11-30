@@ -158,7 +158,7 @@ pl <- (ggplot(data = dataGG,
 #' @param ... additional parametes for plotting (NOT YET IMPLEMENTED)
 #' @return a \code{ggplot2} object
 #' @export
-#' @importFrom  GenomicRanges colData
+#' @importFrom SummarizedExperiment colData
 #' @importFrom smoothmest smhuber
 #' @examples
 #' data(testData)
