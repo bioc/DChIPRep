@@ -170,7 +170,7 @@ testSampleTable <- function(sampleTable){
 #'\code{\link[DESeq2]{DESeqDataSet}}.
 #'
 #'
-#' @importFrom DESeq2 DESeqDataSetFromMatrix normalizationFactors normalizationFactors<-
+#' @import DESeq2
 #'
 #' @export
 #' @examples

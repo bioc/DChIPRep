@@ -24,7 +24,7 @@ DESeq2Data.DChIPRepResults <- function(object){
 #' DESeq2Data(dcr)
 #'
 #' @rdname DESeq2Data
-#' @importFrom DESeq2 DESeqDataSet
+#' @import DESeq2
 #' @aliases DESeq2Data DESeq2Data<- DESeq2Data,DChIPRepResults-method
 #'
 #' @return the DESeq2Data object contained in the DChIPRepResults object
@@ -34,7 +34,7 @@ setMethod("DESeq2Data", signature(object="DChIPRepResults"),
 
 #' @param value A DESeqDataSet object
 #' @rdname DESeq2Data
-#' @importFrom DESeq2 DESeqDataSet
+#' @import DESeq2
 #' @export
 setMethod("DESeq2Data<-", signature(object="DChIPRepResults",
                                     value="DESeqDataSet"),
@@ -53,7 +53,7 @@ setMethod("DESeq2Data<-", signature(object="DChIPRepResults",
 #'
 #' @rdname show
 #'
-#' @importFrom S4Vectors DataFrame
+#' @import S4Vectors
 #' @name show
 #' @param object A DChIPRepResults object
 #' @aliases show show,DChIPRepResults-method
@@ -104,7 +104,7 @@ setMethod("show", signature(object="DChIPRepResults"), function(object) {
 #' @return a list containing the estimated false discovery rates
 #'
 #' @rdname FDRresults
-#' @importFrom DESeq2 DESeqDataSet
+#' @import DESeq2
 #' @aliases FDRresults FDRresults<- FDRresults,DChIPRepResults-method
 #' @export
 setMethod("FDRresults", signature(object="DChIPRepResults"),
@@ -114,7 +114,7 @@ setMethod("FDRresults", signature(object="DChIPRepResults"),
 
 #' @param value A DESeqDataSet object
 #' @rdname FDRresults
-#' @importFrom DESeq2 DESeqDataSet
+#' @import DESeq2
 #' @export
 setMethod("FDRresults<-", signature(object="DChIPRepResults", value="list"),
             function(object, value){

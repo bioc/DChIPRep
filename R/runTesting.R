@@ -53,9 +53,8 @@ runTesting.DChIPRepResults <- function(object,
 #' @return a modified \link{DChIPRepResults} object containing the testing results
 #' @seealso \code{\link{resultsDChIPRep}}
 #' @export
+#' @import DESeq2
 #' @importFrom fdrtool fdrtool
-#' @importFrom DESeq2 estimateDispersions
-#' @importFrom DESeq2 nbinomWaldTest
 #' @examples
 #' data(testData)
 #' dcr <- DChIPRepResults(testData)

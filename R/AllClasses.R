@@ -1,4 +1,4 @@
-#' @importFrom DESeq2 DESeqDataSet
+#' @import DESeq2
 #' @rdname DChIPRepResults
 #' @export
 
@@ -36,7 +36,7 @@ setValidity( "DChIPRepResults", function( object ) {
 #' dcr <- DChIPRepResults(testData)
 #'
 #' @rdname DChIPRepResults
-#' @importFrom DESeq2 DESeqDataSet
+#' @import DESeq2
 #' @export
 
 ### constructor

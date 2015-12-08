@@ -76,8 +76,8 @@ pl <- (ggplot(data = dataGG,
 #' @rdname plotSignificance
 #' @aliases plotSignificance plotSignificance,DChIPRepResults-method
 #' @export
+#' @import DESeq2
 #' @importFrom reshape2 melt
-#' @importFrom DESeq2 counts
 #' @importFrom smoothmest smhuber
 #' @importFrom tidyr gather spread
 #'
@@ -158,7 +158,7 @@ pl <- (ggplot(data = dataGG,
 #' @param ... additional parametes for plotting (NOT YET IMPLEMENTED)
 #' @return a \code{ggplot2} object
 #' @export
-#' @importFrom SummarizedExperiment colData
+#' @import GenomicRanges SummarizedExperiment
 #' @importFrom smoothmest smhuber
 #' @examples
 #' data(testData)

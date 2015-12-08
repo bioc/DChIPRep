@@ -1,7 +1,7 @@
 Package: DChIPRep
 Title: DChIPRep - Analysis of chromatin modification ChIP-Seq data with
     replication
-Version: 1.1.4
+Version: 1.1.5
 Authors@R: c(person("Bernd", "Klaus", email = "bernd.klaus@embl.de",
         role = c("aut", "cre")), person("Christophe", "Chabbert", email
         = "christophe.chabbert@embl.de", role = "aut"))
@@ -10,11 +10,11 @@ Description: The DChIPRep package implements a methodology to assess
     replicated ChIP-Seq studies as described in Chabbert et. al -
     http://www.dx.doi.org/10.15252/msb.20145776.
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.2.0),
+    DESeq2
 Imports:
     methods,
     ggplot2,
-    DESeq2,
     fdrtool,
     reshape2,
     GenomicRanges,

@@ -1,4 +1,4 @@
-#' @import methods  ggplot2
+#' @import methods GenomicRanges ggplot2
 NULL
 
 #' DChIPRep: A package for differential analysis of histone modification ChIP-Seq profiles
