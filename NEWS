@@ -1,3 +1,28 @@
+CHANGES IN VERSION 1.1.6
+-------------------------
+
+    * added CITATION file containing the information on the PeerJ preprint 
+    
+BUG FIXES
+
+    * added require(mgcv) to the examplse from  from plotProfiles to pass the check() from devtools
+    * also added mgcv to suggests
+
+CHANGES IN VERSION 1.1.5
+-------------------------
+
+BUG FIXES
+
+    * bug fixes by Hervé Pages
+
+
+CHANGES IN VERSION 1.1.4
+-------------------------
+
+BUG FIXES
+
+    * bug fixes by Hervé Pages
+
 CHANGES IN VERSION 1.1.3
 -------------------------
 

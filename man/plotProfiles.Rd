@@ -27,9 +27,11 @@ after \code{\link{runTesting}} has been run on a \code{DChIPRepResults}
 object.
 }
 \examples{
+if (requireNamespace("mgcv", quietly=TRUE)) {
 data(testData)
 dcr <- DChIPRepResults(testData)
 dcr <- runTesting(dcr)
 plotProfiles(dcr)
+}
 }
 
