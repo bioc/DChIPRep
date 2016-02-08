@@ -1,0 +1,16 @@
+citHeader("To cite DChIPRep in publications use:")
+
+citEntry(entry="article",
+         title = "{DChIPRep}, an R/Bioconductor package for differential enrichment analysis in chromatin studies.",
+         author = personList( as.person("Christophe D Chabbert"),
+                              as.person("Lars M Steinmetz"),
+                              as.person("Bernd Klaus")),
+         year = 2016,
+         journal = "PeerJ PrePrints",
+         doi = "10.7287/peerj.preprints.1723",
+         volume = "4",
+         issue = "e1723",
+         textVersion = 
+         paste("Christophe D Chabbert, Lars M Steinmetz, Bernd Klaus (2016):", 
+               "DChIPRep, an R/Bioconductor package for differential enrichment analysis in chromatin studies.",
+                "PeerJ preprints 4:e1723v1 https://doi.org/10.7287/peerj.preprints.1723" ) )

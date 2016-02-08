@@ -161,10 +161,12 @@ pl <- (ggplot(data = dataGG,
 #' @importFrom  GenomicRanges colData
 #' @importFrom smoothmest smhuber
 #' @examples
+#' if (requireNamespace("mgcv", quietly=TRUE)) {
 #' data(testData)
 #' dcr <- DChIPRepResults(testData)
 #' dcr <- runTesting(dcr)
 #' plotProfiles(dcr)
+#' }
 setMethod("plotProfiles", signature(object="DChIPRepResults"),
             plotProfiles.DChIPRepResults)
 
