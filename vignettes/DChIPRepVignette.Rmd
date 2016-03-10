@@ -301,6 +301,43 @@ imDataFromMatrices <- importDataFromMatrices(inputData = exampleInputData,
 The imported data is again a **DChIPRepResults** object that contains 
 the data as a **DESeqDataSet**.
 
+
+# Importing .bam files directly using `importData_soGGi`
+
+It is also possible to use the function `importData_soGGi`, which is 
+based on the function `regionPlot` from the package  `r Biocpkg("soGGi") `
+to import data from .bam files directly.
+
+It will return a matrix with one column per .bam file and the respective counts per
+postion in the rows. 
+
+In the example below, we use a subsampled .bam file (0.1 \% of the reads)
+from the Galonska et. al. WCE (whole cell extract) H3Kme3 data and associated
+TSS near identified peaks. For additional details on the data, see the help pages
+on `input_galonska` and `TSS_galonska`. The code below is not evaluated,
+since it takes some time to compute.
+
+
+```{r import_soGGi, eval = FALSE}
+
+data(sample_table_galonska)
+data(TSS_galonska)
+
+bam_dir <- file.path(system.file("extdata", package="DChIPRep"))
+wce_bam <- "subsampled_0001_pc_SRR2144628_WCE_bowtie2_mapped-only_XS-filt_no-dups.bam"
+mat_wce <- importData_soGGi(bam_paths = file.path(bam_dir, wce_bam),
+                         TSS = TSS_galonska,
+                         fragment_lengths = sample_table_galonska$input_fragment_length[1],
+                         sample_ids =  sample_table_galonska$input[1],
+                      paired = FALSE,
+                        removeDup=FALSE
+)
+
+head(mat_wce)
+
+```
+
+
 # Perform the tests
 
 After the data import, we are ready to perform the tests for differential enrichment. 

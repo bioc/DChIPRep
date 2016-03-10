@@ -9,5 +9,3 @@ test_that("dataImport_works", {
     expect_is(res, "DChIPRepResults")
 })
 
-
-

@@ -1,3 +1,8 @@
+CHANGES IN VERSION 1.1.7
+-------------------------
+
+    * added new function importData_soGGi to import .bam files in R directly 
+
 CHANGES IN VERSION 1.1.6
 -------------------------
 
