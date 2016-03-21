@@ -21,7 +21,8 @@
 #' @examples
 #' data(exampleSampleTable)
 #' directory <- file.path(system.file("extdata", package="DChIPRep"))
-#' df  <- lapply(file.path(directory, exampleSampleTable$Input), read.delim)[[1]]
+#' df  <- lapply(file.path(directory, exampleSampleTable$Input), 
+#' read.delim)[[1]]
 #' mat <- getMATfromDataFrame(df)
 
 
@@ -52,7 +53,7 @@ getMATfromDataFrame <- function(df, ID="name"){
 #' percentage of \code{trim} is computed on the log scale. This mean is
 #' then exponentiated
 #' again and multiplied by the total number of features passing the threshold
-#'  \code{ct}
+#' \code{ct}
 #' per position. If a position contains only zero counts, its mean
 #' is returned as zero.
 #'
@@ -70,7 +71,8 @@ getMATfromDataFrame <- function(df, ID="name"){
 #' @examples
 #' data(exampleSampleTable)
 #' directory <- file.path(system.file("extdata", package="DChIPRep"))
-#' df  <- lapply(file.path(directory, exampleSampleTable$Input), read.delim)[[1]]
+#' df  <- lapply(file.path(directory, exampleSampleTable$Input), 
+#' read.delim)[[1]]
 #' mat <- getMATfromDataFrame(df)
 #' summaryPerPos <- summarizeCountsPerPosition(mat)
 
@@ -79,50 +81,48 @@ summarizeCountsPerPosition <- function(mat, ct=0, trim=0.15){
   # Get log counts
   tp <- log(mat + 1)
 
-  # Remove 0 counts
-  xx <- apply(tp, 2, function(x){
-                      if( mean(abs(x)) <  .Machine$double.eps ^ 0.5){
-                      x <- 0
-                      }
-                      else{
-                      x <- x[x > 0]
-                      }
-                      return(x)
-                      } )
+  # Remove 0 counts and counts below ct
+  tp[,colMeans(abs(tp)) < .Machine$double.eps ^ 0.5] <- NA
+  tp[tp <= ct] <- NA
 
   # Get the number of genes with counts > 0 at each position
-  factors <-  sapply(xx, length)
+  factors <- colSums(!is.na(tp))
+
   # Get the mean counts at each position
-  matMEANS <- sapply(xx,  mean, trim = 0.15)
-  # Get the  count
-  intermCOUNTS <-  expm1(matMEANS)
+  matMEANS <- vapply(split(tp, col(tp)), mean, double(1L), trim = trim, 
+  na.rm = TRUE)
+  matMEANS[is.na(matMEANS)] <- 0
+
   # Multiply by the number of genes with counts > 0
-  ceiling(factors*intermCOUNTS)
+  ceiling(factors * expm1(matMEANS))
 }
+
+
+
 
 
 # Function to run tests on the sample table
 testSampleTable <- function(sampleTable){
 
    # test whether the sample Table is a data frame
-   if( !"data.frame" %in% class(sampleTable)){
+  if( !"data.frame" %in% class(sampleTable)){
     stop("Input sample table is not a data frame")
-   }
+  }
 
    # test whether the sample table contains neccessary columns
-   testCI <- function(sampleTable) {
+  testCI <- function(sampleTable) {
     all("sampleID" %in% names(sampleTable),
     "condition" %in% names(sampleTable),
     "upstream" %in% names(sampleTable),
     "downstream" %in% names(sampleTable))
-   }
-   on_failure(testCI) <- function(call, env) {
+  }
+  on_failure(testCI) <- function(call, env) {
     paste0("The sample table needs to contain columns named, \n upstream, downstream, condition and sampleID")
-   }
+  }
    assert_that(testCI(sampleTable))
 
     # test uniqueness and equality of the upstream and downstream vectors
-   testUniqueness <- function(up, down) {
+  testUniqueness <- function(up, down) {
     all(sapply(up, is.count),
     sapply(down, is.count),
     length(unique(up)) == 1,
@@ -132,7 +132,7 @@ testSampleTable <- function(sampleTable){
     paste0("Upstream and/or downstream positions are not unique \n and/or  are not positive integers")
   }
   assert_that(testUniqueness(sampleTable$upstream,
-                  sampleTable$downstream))
+                sampleTable$downstream))
 
 }
 
@@ -161,7 +161,8 @@ testSampleTable <- function(sampleTable){
 #' @param chipData a matrix containing the counts for the ChIP per position.
 #' @param sampleTable a data.frame that has to contain the columns sampleID,
 #' upstream, downstream and condition. Each row of the table describes one
-#' experimental sample. See \code{data(exampleSampleTable)} for an example table.
+#' experimental sample. See \code{data(exampleSampleTable)} for an example 
+#' table.
 #' and the vignette for further information.
 #'
 #'
@@ -221,9 +222,9 @@ importDataFromMatrices <- function(inputData, chipData, sampleTable){
 
     ## get the positions as row names
     rownames(inputData) <- paste0("Pos_",seq(from =-unique(sampleTable$upstream)
-                              , to = unique(sampleTable$downstream), by = 1))
+                            , to = unique(sampleTable$downstream), by = 1))
     rownames(chipData) <- paste0("Pos_", seq(from =-unique(sampleTable$upstream)
-                              , to = unique(sampleTable$downstream), by = 1))
+                            , to = unique(sampleTable$downstream), by = 1))
 
 
     ## check whether the sample IDs contain duplicates
@@ -239,8 +240,8 @@ importDataFromMatrices <- function(inputData, chipData, sampleTable){
 
     # create a DESeq2 object
     DESeq2Data <- DESeqDataSetFromMatrix(countData = chipData,
-                                      colData = data.frame(sampleTable),
-                                      design = formula(~ condition))
+                                    colData = data.frame(sampleTable),
+                                    design = formula(~ condition))
     normalizationFactors(DESeq2Data) <- normFactors
 
     DChIPRepResults(DESeq2Data)
@@ -255,6 +256,8 @@ importDataFromMatrices <- function(inputData, chipData, sampleTable){
 #' @include AllGenerics.R
 #'
 #' @importFrom plyr ldply
+#' @importFrom stats aggregate.data.frame formula
+#' @importFrom utils read.delim
 #'
 #' @import assertthat
 #'
@@ -262,7 +265,8 @@ importDataFromMatrices <- function(inputData, chipData, sampleTable){
 #' sampleID,
 #' upstream, downstream and condition. Each row of the table describes one
 #' experimental sample. Each row of the table describes one
-#' experimental sample. See \code{data(exampleSampleTable)} for an example table.
+#' experimental sample. See \code{data(exampleSampleTable)} for an example 
+#' table.
 #' and the vignette for further information.
 #'
 #' @param directory  the directory relative to which the filenames are specified
@@ -296,9 +300,9 @@ stopifnot(is.character(directory))
 
 
 if( !all(file.exists(file.path(directory, sampleTable$Input)),
-         file.exists(file.path(directory, sampleTable$ChIP)))){
-         stop("Some or all Input/ChIP files do not exist!")
-         }
+        file.exists(file.path(directory, sampleTable$ChIP)))){
+        stop("Some or all Input/ChIP files do not exist!")
+        }
 
 
 inputData <- lapply(file.path(directory, sampleTable$Input), read.delim)
@@ -307,7 +311,7 @@ chipData <- lapply(file.path(directory, sampleTable$ChIP), read.delim)
 
 
 inputData <- lapply(inputData, getMATfromDataFrame)
-chipData <-  lapply(chipData, getMATfromDataFrame)
+chipData <- lapply(chipData, getMATfromDataFrame)
 
 
 inputData <- t(as.matrix(ldply(inputData, summarizeCountsPerPosition, ...)))

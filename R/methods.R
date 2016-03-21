@@ -123,7 +123,8 @@ setMethod("FDRresults<-", signature(object="DChIPRepResults", value="list"),
                 object
             })
 
-#' Accessors and setter for the 'results' slot of a \code{DChIPRepResults} object.
+#' Accessors and setter for the 'results' slot of 
+#'a \code{DChIPRepResults} object.
 #'
 #' The slot contains the results of the position wise tests in a
 #' data.frame after runing

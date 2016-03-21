@@ -6,7 +6,8 @@
 \alias{resultsDChIPRep,DChIPRepResults-method}
 \alias{resultsDChIPRep<-}
 \alias{resultsDChIPRep<-,DChIPRepResults,list-method}
-\title{Accessors and setter for the 'results' slot of a \code{DChIPRepResults} object.}
+\title{Accessors and setter for the 'results' slot of 
+a \code{DChIPRepResults} object.}
 \usage{
 \S4method{resultsDChIPRep}{DChIPRepResults}(object)
 

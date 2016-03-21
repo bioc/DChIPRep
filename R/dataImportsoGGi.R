@@ -2,31 +2,35 @@
 #'
 #' This function imports the data from .bam files directly. It will
 #' return a matrix with one column per .bam file and the respective counts per
-#' postion in the rows. It uses the function \code{\link[soGGi]{regionPlot}} from the package
+#' postion in the rows. It uses the function \code{\link[soGGi]{regionPlot}} 
+#' from the package
 #' \code{soGGi}.
 #'
 #' In the example below, we use a subsampled .bam file (0.1 \% of the reads)
 #' from the Galonska et. al. WCE (whole cell extract) H3Kme3 data and associated
-#' TSS near identified peaks. For additional details on the data, see \link{input_galonska}
+#' TSS near identified peaks. For additional details on the data, 
+#' see \link{input_galonska}
 #' and \link{TSS_galonska}.
 #'
 #' @include AllGenerics.R
 #'
 #'
-#' @param bam_paths a character vector of paths to the bam file(s) to be imported.
+#' @param bam_paths a character vector of paths to the bam file(s) 
+#' to be imported.
 #' @param TSS a GRanges (\link[GenomicRanges]{GenomicRanges-class}) (or a class
 #' that inherets from it)
 #' object containing the TSS of interest.
 #' @param fragment_lengths an integer vector of fragment lengths,
 #' @param sample_ids a character vector of sample ids for the .bam files.
 #' This can also be a factor.
-#' @param distanceUp  Distance upstream from centre of the TSS provided.
-#' @param distanceDown  Distance downstream from centre of the TSS provided.
+#' @param distanceUp Distance upstream from centre of the TSS provided.
+#' @param distanceDown Distance downstream from centre of the TSS provided.
 #'
-#' @param ...  additional arguments passed to \link[soGGi]{regionPlot}.
+#' @param ... additional arguments passed to \link[soGGi]{regionPlot}.
 #'
 #'
-#' @return a matrix that contains the postion-wise profiles per .bam file in the colmuns.
+#' @return a matrix that contains the postion-wise profiles per .bam 
+#' file in the colmuns.
 #'
 #'
 #' @importFrom soGGi regionPlot
@@ -35,7 +39,7 @@
 #'
 #' @export
 #'
-#' @seealso \code{\link[soGGi]{regionPlot}}  \link{input_galonska} \link{TSS_galonska} \link{sample_table_galonska}
+#' @seealso \code{\link[soGGi]{regionPlot}} \link{input_galonska} \link{TSS_galonska} \link{sample_table_galonska}
 #'
 #'
 #' @examples
@@ -45,10 +49,10 @@
 #' bam_dir <- file.path(system.file("extdata", package="DChIPRep"))
 #' wce_bam <- "subsampled_0001_pc_SRR2144628_WCE_bowtie2_mapped-only_XS-filt_no-dups.bam"
 #' mat_wce <- importData_soGGi(bam_paths = file.path(bam_dir, wce_bam),
-#'                             TSS = TSS_galonska,
-#'                             fragment_lengths = sample_table_galonska$input_fragment_length[1],
-#'                             sample_ids =  sample_table_galonska$input[1],
-#'                          paired = FALSE,
+#'                            TSS = TSS_galonska,
+#'                            fragment_lengths = sample_table_galonska$input_fragment_length[1],
+#'                            sample_ids =  sample_table_galonska$input[1],
+#'                            paired = FALSE,
 #'                            removeDup=FALSE
 #' )
 #' head(mat_wce)
@@ -58,7 +62,7 @@
 
 
 importData_soGGi <- function(bam_paths, TSS, fragment_lengths, sample_ids,
-                             distanceUp = 1000, distanceDown = 1500, ...){
+                            distanceUp = 1000, distanceDown = 1500, ...){
 
     if( !all(map_lgl(bam_paths, is.character)) ){
         stop("The file paths needs to be given as a character vector")
@@ -85,9 +89,9 @@ importData_soGGi <- function(bam_paths, TSS, fragment_lengths, sample_ids,
     .soGGi_import_func <- function(bam, fragment_length, sample_id){
 
         regionPlot(bamFile = bam, testRanges = TSS, style="point",
-                   distanceUp = distanceUp, distanceDown = distanceDown,
-                   format="bam", FragmentLength = fragment_length,
-                   samplename = sample_id)
+                    distanceUp = distanceUp, distanceDown = distanceDown,
+                    format="bam", FragmentLength = fragment_length,
+                    samplename = sample_id)
 
     }
 

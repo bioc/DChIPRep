@@ -10,7 +10,7 @@ setGeneric("DESeq2Data<-",
 
 
 setGeneric("runTesting",
-    function(object, lfcThreshold = 0.05,  plotFDR = FALSE, ...)
+    function(object, lfcThreshold = 0.05, plotFDR = FALSE, ...)
     standardGeneric("runTesting"))
 
 setGeneric("FDRresults",

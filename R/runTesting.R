@@ -9,20 +9,20 @@ runTesting.DChIPRepResults <- function(object,
 
     ### Get the results
     res <- as.data.frame(DESeq2::results(DESeq2Data,lfcThreshold = lfcThreshold,
-                          altHypothesis="greaterAbs",
+                            altHypothesis="greaterAbs",
                             independentFiltering = FALSE,
                             format = "DataFrame", ...))
 
 
 
-    # FDR computations
+# FDR computations
 
     FDR <- fdrtool(res$pvalue, statistic = "pvalue", plot = plotFDR)
 
     res$lfdr <- FDR$lfdr
 
 
-    # add FDR to the results  and to the object
+    # add FDR to the results and to the object
 
     FDRresults(object) <- FDR
     resultsDChIPRep(object) <- res
@@ -50,7 +50,8 @@ runTesting.DChIPRepResults <- function(object,
 #' @param ... not used currently
 #'
 #'
-#' @return a modified \link{DChIPRepResults} object containing the testing results
+#' @return a modified \link{DChIPRepResults} object containing the 
+#' testing results
 #' @seealso \code{\link{resultsDChIPRep}}
 #' @export
 #' @import DESeq2
@@ -60,7 +61,7 @@ runTesting.DChIPRepResults <- function(object,
 #' dcr <- DChIPRepResults(testData)
 #' dcr <- runTesting(dcr)
 setMethod("runTesting", signature(object="DChIPRepResults"),
-          runTesting.DChIPRepResults)
+            runTesting.DChIPRepResults)
 
 
 

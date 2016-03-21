@@ -9,12 +9,12 @@ NULL
 #' @section DChIPRep functions:
 #' The \code{DChIPRep} packages provides functions for data import
 #' \code{\link{importData}}
-#' and  performing
+#' and performing
 #' position wise tests. After data import, a \code{\link{DChIPRepResults}}
 #' object on which the function \code{\link{runTesting}}
 #' is run to perform the tests and add the result to the object. Then, plots
 #' can be created from this object. See the vignette for additional details:
-#'  \code{vignette("DChIPRepVignette")}
+#' \code{vignette("DChIPRepVignette")}
 #'
 #'
 #' @docType package

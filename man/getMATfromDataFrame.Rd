@@ -28,7 +28,8 @@ are tables obtained after running the Python import script.
 \examples{
 data(exampleSampleTable)
 directory <- file.path(system.file("extdata", package="DChIPRep"))
-df  <- lapply(file.path(directory, exampleSampleTable$Input), read.delim)[[1]]
+df  <- lapply(file.path(directory, exampleSampleTable$Input), 
+read.delim)[[1]]
 mat <- getMATfromDataFrame(df)
 }
 

@@ -13,7 +13,7 @@
 \item{object}{a \code{DChIPRepResults} object after \code{\link{runTesting}}}
 
 \item{meanFunction}{a function to compute the positionwise mean per group,
-defaults  to a Huber estimator of the mean.}
+defaults to a Huber estimator of the mean.}
 
 \item{...}{additional parametes for plotting (NOT YET IMPLEMENTED)}
 }
@@ -22,7 +22,7 @@ a \code{ggplot2} object
 }
 \description{
 This function plots the positionwise mean of the log2 of the normalized
-counts of the  two conditions
+counts of the two conditions
 after \code{\link{runTesting}} has been run on a \code{DChIPRepResults}
 object.
 }

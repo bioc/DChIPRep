@@ -3,7 +3,7 @@
 \docType{data}
 \name{TSS_galonska}
 \alias{TSS_galonska}
-\title{TSS around called peak regions  from Galonska et. al.}
+\title{TSS around called peak regions from Galonska et. al.}
 \format{an annoGR object from the package \code{ChIPpeakAnno}.}
 \usage{
 data(exampleChipData)
@@ -12,13 +12,14 @@ data(exampleChipData)
 an annoGR object from the package \code{ChIPpeakAnno}.
 }
 \description{
-This data contains mouse mm9 TSS close to called peak regions for H3Kme3 from Galonksa
+This data contains mouse mm9 TSS close to called peak regions for H3Kme3 
+from Galonksa
 et al. The original peak lists are from are from GEO (GSE56312) and have been
 merged into a common peaklist and then annotated to the closest mm9 TSS using
 \link[ChIPpeakAnno]{annotatePeakInBatch}.
 }
 \seealso{
-\link{chip_galonska} \link{input_galonska}  \link{sample_table_galonska}
+\link{chip_galonska} \link{input_galonska} \link{sample_table_galonska}
 }
 \keyword{datasets}
 

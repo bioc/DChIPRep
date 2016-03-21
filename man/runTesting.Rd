@@ -22,7 +22,8 @@ estimated FDRs will be displayed}
 \item{...}{not used currently}
 }
 \value{
-a modified \link{DChIPRepResults} object containing the testing results
+a modified \link{DChIPRepResults} object containing the 
+testing results
 }
 \description{
 This function runs the testing on a \code{DChIPRepResults} object. It adds

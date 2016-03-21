@@ -8,7 +8,8 @@ importData_soGGi(bam_paths, TSS, fragment_lengths, sample_ids,
   distanceUp = 1000, distanceDown = 1500, ...)
 }
 \arguments{
-\item{bam_paths}{a character vector of paths to the bam file(s) to be imported.}
+\item{bam_paths}{a character vector of paths to the bam file(s) 
+to be imported.}
 
 \item{TSS}{a GRanges (\link[GenomicRanges]{GenomicRanges-class}) (or a class
 that inherets from it)
@@ -26,18 +27,21 @@ This can also be a factor.}
 \item{...}{additional arguments passed to \link[soGGi]{regionPlot}.}
 }
 \value{
-a matrix that contains the postion-wise profiles per .bam file in the colmuns.
+a matrix that contains the postion-wise profiles per .bam 
+file in the colmuns.
 }
 \description{
 This function imports the data from .bam files directly. It will
 return a matrix with one column per .bam file and the respective counts per
-postion in the rows. It uses the function \code{\link[soGGi]{regionPlot}} from the package
+postion in the rows. It uses the function \code{\link[soGGi]{regionPlot}} 
+from the package
 \code{soGGi}.
 }
 \details{
 In the example below, we use a subsampled .bam file (0.1 \% of the reads)
 from the Galonska et. al. WCE (whole cell extract) H3Kme3 data and associated
-TSS near identified peaks. For additional details on the data, see \link{input_galonska}
+TSS near identified peaks. For additional details on the data, 
+see \link{input_galonska}
 and \link{TSS_galonska}.
 }
 \examples{
@@ -47,10 +51,10 @@ data(TSS_galonska)
 bam_dir <- file.path(system.file("extdata", package="DChIPRep"))
 wce_bam <- "subsampled_0001_pc_SRR2144628_WCE_bowtie2_mapped-only_XS-filt_no-dups.bam"
 mat_wce <- importData_soGGi(bam_paths = file.path(bam_dir, wce_bam),
-                            TSS = TSS_galonska,
-                            fragment_lengths = sample_table_galonska$input_fragment_length[1],
-                            sample_ids =  sample_table_galonska$input[1],
-                         paired = FALSE,
+                           TSS = TSS_galonska,
+                           fragment_lengths = sample_table_galonska$input_fragment_length[1],
+                           sample_ids =  sample_table_galonska$input[1],
+                           paired = FALSE,
                            removeDup=FALSE
 )
 head(mat_wce)
@@ -58,6 +62,6 @@ head(mat_wce)
 
 }
 \seealso{
-\code{\link[soGGi]{regionPlot}}  \link{input_galonska} \link{TSS_galonska} \link{sample_table_galonska}
+\code{\link[soGGi]{regionPlot}} \link{input_galonska} \link{TSS_galonska} \link{sample_table_galonska}
 }
 

@@ -11,7 +11,8 @@ importData(sampleTable, directory = "", ID = "name", ...)
 sampleID,
 upstream, downstream and condition. Each row of the table describes one
 experimental sample. Each row of the table describes one
-experimental sample. See \code{data(exampleSampleTable)} for an example table.
+experimental sample. See \code{data(exampleSampleTable)} for an example 
+table.
 and the vignette for further information.}
 
 \item{directory}{the directory relative to which the filenames are specified

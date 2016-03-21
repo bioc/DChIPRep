@@ -3,7 +3,8 @@
 \docType{data}
 \name{input_galonska}
 \alias{input_galonska}
-\title{Another example Input data set that can be used with \code{\link{importDataFromMatrices}} from rom Galonska et. al., 2015.}
+\title{Another example Input data set that can be used 
+with \code{\link{importDataFromMatrices}} from rom Galonska et. al., 2015.}
 \format{a matrix}
 \usage{
 data(input_galonska)
@@ -12,14 +13,15 @@ data(input_galonska)
 a matrix
 }
 \description{
-The matrix containes the whole cell extract (WCE) data for H3Kme3 from the paper
+The matrix containes the whole cell extract (WCE) data for H3Kme3 
+from the paper
 in each of the four columns, since
 this is the only inpu data provided for all 4 samples. For additional
- information see the documentation
- of \link{chip_galonska}.
+information see the documentation
+of \link{chip_galonska}.
 }
 \seealso{
-\link{chip_galonska}  \link{sample_table_galonska} \link{TSS_galonska}
+\link{chip_galonska} \link{sample_table_galonska} \link{TSS_galonska}
 }
 \keyword{datasets}
 

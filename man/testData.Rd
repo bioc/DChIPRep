@@ -4,12 +4,12 @@
 \name{testData}
 \alias{testData}
 \title{A test DESeqDataSet}
-\format{a  DESeqDataSet}
+\format{a DESeqDataSet}
 \usage{
 data(testData)
 }
 \value{
-a  DESeqDataSet
+a DESeqDataSet
 }
 \description{
 test data to check the functions

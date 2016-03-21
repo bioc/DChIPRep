@@ -15,7 +15,7 @@ a data.frame
 An example sample table
 }
 \seealso{
-\link{exampleChipData}   \link{exampleInputData}
+\link{exampleChipData} \link{exampleInputData}
 }
 \keyword{datasets}
 

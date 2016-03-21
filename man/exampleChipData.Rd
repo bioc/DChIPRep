@@ -12,11 +12,13 @@ data(exampleChipData)
 a matrix
 }
 \description{
-An example ChIP data set that can be used with \code{\link{importDataFromMatrices}}.
-Its associated sample table can be accessed via data(data(exampleSampleTable).
+An example ChIP data set that can be used with
+\code{\link{importDataFromMatrices}}.
+Its associated sample table can be accessed via 
+data(data(exampleSampleTable).
 }
 \seealso{
-\link{exampleSampleTable}  \link{exampleInputData}
+\link{exampleSampleTable} \link{exampleInputData}
 }
 \keyword{datasets}
 

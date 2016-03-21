@@ -13,11 +13,11 @@ a data.frame
 }
 \description{
 This table contains the sample annotation for the H3Kme3 data from
- Galonska et. al., 2015. For additional information see the documentation
- of \link{chip_galonska}.
+Galonska et. al., 2015. For additional information see the documentation
+of \link{chip_galonska}.
 }
 \seealso{
-\link{chip_galonska}  \link{input_galonska} \link{TSS_galonska}
+\link{chip_galonska} \link{input_galonska} \link{TSS_galonska}
 }
 \keyword{datasets}
 

@@ -17,13 +17,14 @@ pos <-   seq(from =-unique(sampleTable$upstream)
 
 suppressMessages(c.ggplot2 <- data.frame(pos = pos,
                         melt(countsLog2,
-                                       variable.name= "sample",
-                                       value.name= "PosSignal")))
+                            variable.name= "sample",
+                            value.name= "PosSignal")))
 
 ### get mean per group for ratio plots
 m.f <- meanFunction
 m.per.group <- t(aggregate.data.frame(t(countsLog2),
-                                      by = list(sampleTable$condition), FUN = m.f )[,-1])
+                                      by = list(sampleTable$condition), 
+                                      FUN = m.f )[,-1])
 colnames(m.per.group) <-  levels(sampleTable$condition)
 
 
@@ -33,8 +34,8 @@ m.per.group$pos <- pos
 m.per.group$significant <- idxSig
 
 dataGG <- gather(m.per.group,
-       key = "experimental_Group_and_significance",
-       value = "mean_log2_counts", 1:2)
+        key = "experimental_Group_and_significance",
+        value = "mean_log2_counts", 1:2)
 
 dataGG$experimental_Group_and_significance <- ifelse(dataGG$significant,
                                                       "significant",
@@ -48,12 +49,13 @@ pl <- (ggplot(data = dataGG,
               aes_string(x = "pos",
                          y = "mean_log2_counts",
                          color = "experimental_Group_and_significance")) +
-      geom_point() +
-      labs(x ="Distance from TSS (bp)",
-           y="Nucleosome occupancy (mean counts per group , log2)") +
-      scale_color_manual(values = c("#3366CC", "#e41a1c", "black")) +
-      theme(panel.background = element_blank(), panel.grid.minor=element_blank(),
-      axis.line = element_line(colour = "black", size = 0.5)))
+    geom_point() +
+    labs(x ="Distance from TSS (bp)",
+        y="Nucleosome occupancy (mean counts per group , log2)") +
+    scale_color_manual(values = c("#3366CC", "#e41a1c", "black")) +
+    theme(panel.background = element_blank(), 
+    panel.grid.minor=element_blank(),
+    axis.line = element_line(colour = "black", size = 0.5)))
 
 
 
@@ -94,7 +96,7 @@ pl <- (ggplot(data = dataGG,
 #' dcr <- runTesting(dcr)
 #' plotSignificance(dcr)
 setMethod("plotSignificance", signature(object="DChIPRepResults"),
-          plotSignificance.DChIPRepResults)
+            plotSignificance.DChIPRepResults)
 
 
 plotProfiles.DChIPRepResults <- function(object,
@@ -108,32 +110,32 @@ ccc <- counts(DESeq2Data(object), normalized = TRUE)
 sampleTable <- colData(DESeq2Data(object))
 
 profilePerGroup <- t(aggregate.data.frame(t(ccc),
-                                      by = list( sampleTable$condition),
-                                      FUN = meanFunction )[,-1])
-colnames(profilePerGroup) <-  levels(sampleTable$condition)
+                                    by = list( sampleTable$condition),
+                                    FUN = meanFunction )[,-1])
+colnames(profilePerGroup) <- levels(sampleTable$condition)
 
-# take log2 for plotting and  substract the sample mean
+# take log2 for plotting and substract the sample mean
 profilePerGroup <- as.data.frame(scale(log2(profilePerGroup), scale = FALSE))
 
 profilePerGroup$Pos <- integer(dim(profilePerGroup)[1])
 
-profilePerGroup$Pos <-  seq(from =-unique(sampleTable$upstream)
+profilePerGroup$Pos <- seq(from =-unique(sampleTable$upstream)
                             , to = unique(sampleTable$downstream), by = 1)
 
 dataGG <- gather(profilePerGroup,
-           key = "experimental_Group", value = "log2_counts_centered", -3)
+        key = "experimental_Group", value = "log2_counts_centered", -3)
 
 pl <- (ggplot(data = dataGG,
               aes_string(x = "Pos",
-                         y = "log2_counts_centered",
-                         color = "experimental_Group")) +
-       geom_smooth(se = FALSE) +
-       labs(x = "Distance from TSS (bp)",
+                        y = "log2_counts_centered",
+                        color = "experimental_Group")) +
+        geom_smooth(se = FALSE) +
+        labs(x = "Distance from TSS (bp)",
             y = "Nucleosome occupancy (centered counts, log2)") +
-       scale_color_manual(values = c("#3366CC", "#e41a1c")) +
-       theme(panel.background = element_blank(),
-             panel.grid.minor=element_blank(),
-             axis.line = element_line(colour = "black", size = 0.5)))
+        scale_color_manual(values = c("#3366CC", "#e41a1c")) +
+        theme(panel.background = element_blank(),
+            panel.grid.minor=element_blank(),
+            axis.line = element_line(colour = "black", size = 0.5)))
  return(pl)
 
 }
@@ -141,7 +143,7 @@ pl <- (ggplot(data = dataGG,
 #' Produce a TSS plot of the two conditions in the data
 #'
 #' This function plots the positionwise mean of the log2 of the normalized
-#' counts of the  two conditions
+#' counts of the two conditions
 #' after \code{\link{runTesting}} has been run on a \code{DChIPRepResults}
 #' object.
 #'
@@ -153,7 +155,7 @@ pl <- (ggplot(data = dataGG,
 #' @aliases plotProfiles plotProfiles,DChIPRepResults-method
 #' @param object a \code{DChIPRepResults} object after \code{\link{runTesting}}
 #' @param meanFunction a function to compute the positionwise mean per group,
-#' defaults  to a Huber estimator of the mean.
+#' defaults to a Huber estimator of the mean.
 #'
 #' @param ... additional parametes for plotting (NOT YET IMPLEMENTED)
 #' @return a \code{ggplot2} object

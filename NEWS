@@ -1,3 +1,10 @@
+CHANGES IN VERSION 1.1.8
+-------------------------
+
+    * summarizeCountsPerPosition has been improved and erroneously hard-coded 
+    options can now be actually set. This improved version was developed by
+    Sebastian Gibb (http://sebastiangibb.de/).
+
 CHANGES IN VERSION 1.1.7
 -------------------------
 

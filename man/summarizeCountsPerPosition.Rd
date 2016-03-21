@@ -31,14 +31,15 @@ a trimming
 percentage of \code{trim} is computed on the log scale. This mean is
 then exponentiated
 again and multiplied by the total number of features passing the threshold
- \code{ct}
+\code{ct}
 per position. If a position contains only zero counts, its mean
 is returned as zero.
 }
 \examples{
 data(exampleSampleTable)
 directory <- file.path(system.file("extdata", package="DChIPRep"))
-df  <- lapply(file.path(directory, exampleSampleTable$Input), read.delim)[[1]]
+df  <- lapply(file.path(directory, exampleSampleTable$Input), 
+read.delim)[[1]]
 mat <- getMATfromDataFrame(df)
 summaryPerPos <- summarizeCountsPerPosition(mat)
 }
