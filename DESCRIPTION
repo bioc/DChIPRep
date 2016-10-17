@@ -1,7 +1,7 @@
 Package: DChIPRep
 Title: DChIPRep - Analysis of chromatin modification ChIP-Seq data with
     replication
-Version: 1.4.0
+Version: 1.5.0
 Authors@R: c(person("Bernd", "Klaus", email = "bernd.klaus@embl.de",
         role = c("aut", "cre")), 
         person("Christophe", "Chabbert", email
