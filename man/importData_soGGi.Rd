@@ -64,4 +64,3 @@ head(mat_wce)
 \seealso{
 \code{\link[soGGi]{regionPlot}} \link{input_galonska} \link{TSS_galonska} \link{sample_table_galonska}
 }
-

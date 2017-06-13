@@ -24,4 +24,3 @@ dcr
 dcr <- runTesting(dcr)
 dcr
 }
-

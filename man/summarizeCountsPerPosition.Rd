@@ -43,4 +43,3 @@ read.delim)[[1]]
 mat <- getMATfromDataFrame(df)
 summaryPerPos <- summarizeCountsPerPosition(mat)
 }
-

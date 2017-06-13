@@ -2,8 +2,8 @@
 % Please edit documentation in R/AllClasses.R
 \docType{class}
 \name{DChIPRepResults-class}
-\alias{DChIPRepResults}
 \alias{DChIPRepResults-class}
+\alias{DChIPRepResults}
 \title{DChIPRepResults object and constructor}
 \usage{
 DChIPRepResults(object)
@@ -24,4 +24,3 @@ data(testData)
 dcr <- DChIPRepResults(testData)
 
 }
-

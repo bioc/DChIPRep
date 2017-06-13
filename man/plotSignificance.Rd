@@ -7,7 +7,7 @@
 \title{Produce a plot that colors the positions identified as significant}
 \usage{
 \S4method{plotSignificance}{DChIPRepResults}(object,
-  meanFunction = function(x) {     smhuber(x)$mu }, lfdrThresh = 0.2, ...)
+  meanFunction = robust_mean, lfdrThresh = 0.2, ...)
 }
 \arguments{
 \item{object}{a \code{DChIPRepResults} object after \code{\link{runTesting}}}
@@ -37,4 +37,3 @@ dcr <- DChIPRepResults(testData)
 dcr <- runTesting(dcr)
 plotSignificance(dcr)
 }
-

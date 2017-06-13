@@ -21,4 +21,3 @@ data(data(exampleSampleTable).
 \link{exampleSampleTable} \link{exampleInputData}
 }
 \keyword{datasets}
-

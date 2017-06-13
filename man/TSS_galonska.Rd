@@ -22,4 +22,3 @@ merged into a common peaklist and then annotated to the closest mm9 TSS using
 \link{chip_galonska} \link{input_galonska} \link{sample_table_galonska}
 }
 \keyword{datasets}
-

@@ -6,8 +6,8 @@
 \alias{plotProfiles,DChIPRepResults-method}
 \title{Produce a TSS plot of the two conditions in the data}
 \usage{
-\S4method{plotProfiles}{DChIPRepResults}(object, meanFunction = function(x) { 
-     smhuber(x)$mu }, ...)
+\S4method{plotProfiles}{DChIPRepResults}(object, meanFunction = robust_mean,
+  ...)
 }
 \arguments{
 \item{object}{a \code{DChIPRepResults} object after \code{\link{runTesting}}}
@@ -34,4 +34,3 @@ dcr <- runTesting(dcr)
 plotProfiles(dcr)
 }
 }
-

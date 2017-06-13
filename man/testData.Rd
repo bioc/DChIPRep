@@ -15,4 +15,3 @@ a DESeqDataSet
 test data to check the functions
 }
 \keyword{datasets}
-
