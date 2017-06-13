@@ -38,4 +38,3 @@ data(exampleSampleTable)
 directory <- file.path(system.file("extdata", package="DChIPRep"))
 importedData <- importData(exampleSampleTable, directory)
 }
-

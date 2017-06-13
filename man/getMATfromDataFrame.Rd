@@ -32,4 +32,3 @@ df  <- lapply(file.path(directory, exampleSampleTable$Input),
 read.delim)[[1]]
 mat <- getMATfromDataFrame(df)
 }
-

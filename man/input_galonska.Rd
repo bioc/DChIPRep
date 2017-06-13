@@ -24,4 +24,3 @@ of \link{chip_galonska}.
 \link{chip_galonska} \link{sample_table_galonska} \link{TSS_galonska}
 }
 \keyword{datasets}
-

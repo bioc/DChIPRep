@@ -45,4 +45,3 @@ imDataFromMatrices <- importDataFromMatrices(inputData = exampleInputData,
 chipData = exampleChipData,
 sampleTable = exampleSampleTable)
 }
-

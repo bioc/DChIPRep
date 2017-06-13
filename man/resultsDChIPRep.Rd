@@ -3,8 +3,8 @@
 \docType{methods}
 \name{resultsDChIPRep}
 \alias{resultsDChIPRep}
-\alias{resultsDChIPRep,DChIPRepResults-method}
 \alias{resultsDChIPRep<-}
+\alias{resultsDChIPRep,DChIPRepResults-method}
 \alias{resultsDChIPRep<-,DChIPRepResults,list-method}
 \title{Accessors and setter for the 'results' slot of 
 a \code{DChIPRepResults} object.}
@@ -34,4 +34,3 @@ dcr <- runTesting(dcr)
 head(resultsDChIPRep(dcr))
 
 }
-

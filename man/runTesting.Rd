@@ -38,4 +38,3 @@ dcr <- runTesting(dcr)
 \seealso{
 \code{\link{resultsDChIPRep}}
 }
-

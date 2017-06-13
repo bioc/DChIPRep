@@ -1,3 +1,11 @@
+CHANGES IN VERSION 1.7.1
+-------------------------
+    * extended the importing section in the vignette a little bit
+    * fixed the robust mean function so that now plotting also works without replicates
+    * new function robust_mean that is used in plotting
+    * when importing matrices, it is now checked that their column names correspond to 
+      the sample IDs given
+
 CHANGES IN VERSION 1.3.3
 -------------------------
 

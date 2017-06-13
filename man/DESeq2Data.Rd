@@ -3,8 +3,8 @@
 \docType{methods}
 \name{DESeq2Data}
 \alias{DESeq2Data}
-\alias{DESeq2Data,DChIPRepResults-method}
 \alias{DESeq2Data<-}
+\alias{DESeq2Data,DChIPRepResults-method}
 \alias{DESeq2Data<-,DChIPRepResults,DESeqDataSet-method}
 \title{Accessors for the 'DESeq2Data' slot of a \code{DChIPRepResults} object.}
 \usage{
@@ -32,4 +32,3 @@ dcr <- DChIPRepResults(testData)
 DESeq2Data(dcr)
 
 }
-

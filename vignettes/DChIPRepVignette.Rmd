@@ -282,6 +282,10 @@ We first show 10 random rows from the two data matrices and then use the functio
 As you can see the rows should be named according to the positions up-- and downstream
 of the TSS that they contain and the columns should be named after the samples.
 
+Note however, that a correct ordering is not checked, it is assumed that the 
+rows are ordered according to the position they represent (from upstream to 
+downstream)
+
 ```{r inspect_example_data, dependson="sampleTable"}
 
 data(exampleInputData)
@@ -289,8 +293,8 @@ data(exampleChipData)
 
 exampleSampleTable
 
-exampleInputData[sample(nrow(exampleInputData), 10), ]
-exampleChipData[sample(nrow(exampleChipData), 10), ]
+exampleInputData[1:10, ]
+exampleChipData[1:10, ]
 
 imDataFromMatrices <- importDataFromMatrices(inputData = exampleInputData, 
                                               chipData = exampleChipData, 

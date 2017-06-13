@@ -3,8 +3,8 @@
 \docType{methods}
 \name{FDRresults}
 \alias{FDRresults}
-\alias{FDRresults,DChIPRepResults-method}
 \alias{FDRresults<-}
+\alias{FDRresults,DChIPRepResults-method}
 \alias{FDRresults<-,DChIPRepResults,list-method}
 \title{Accessor and setter for the 'FDRresults' slot of a \code{DChIPRepResults}
 object.}
@@ -33,4 +33,3 @@ dcr <- runTesting(dcr)
 str(FDRresults(dcr))
 
 }
-

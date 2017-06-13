@@ -18,4 +18,3 @@ An example sample table
 \link{exampleChipData} \link{exampleInputData}
 }
 \keyword{datasets}
-

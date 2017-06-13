@@ -1,5 +1,49 @@
+#' Use a huber type estimator to produce a robust mean
+#'
+#' This function uses a Huber type estimator as implemented in the function
+#' \code{\link[smoothmest]{smhuber}} from the package
+#' \url{https://cran.r-project.org/web/packages/smoothmest/}{smoothmest}.
+#' This is used to summarize the profiles across replicates.
+#' We provide a wrapper around the original function that catches the case that 
+#' we want to produce a mean of a single value. It is used in the functions \code{\link{plotProfiles}}
+#' and \code{\link{plotSignificance}}.
+#'
+#'
+#'
+#' @include AllGenerics.R
+#' @name robust_mean
+#' @rdname robust_mean
+#' @export
+#' @importFrom smoothmest smhuber
+#'
+#' @param x a numerical vector
+#' @return a robust mean of a numerical vector
+#'
+#' @examples
+#' data(testData)
+#' robust_mean(counts(testData[, 1]))
+#' 
+#' x <- rcauchy(10)
+#' robust_mean(x)
+
+
+robust_mean <- function(x){
+  
+  if( !is.vector(x) & (!(is.matrix(x) & any(dim(x) == 1))) ) {
+    stop("input to tobust mean function must be a vector or a matrix with one of the dimensions equal to 1")
+  }
+  
+  if(length(x) == 1){return(x)}
+  else{
+    return(smhuber(x)$mu)
+  } 
+}
+
+
+
+
 plotSignificance.DChIPRepResults <- function(object,
-                                meanFunction = function(x){smhuber(x)$mu},
+                                meanFunction = robust_mean,
                                 lfdrThresh = 0.2, ...){
 
     if(!("lfdr" %in% names(resultsDChIPRep(object)))){
@@ -100,7 +144,7 @@ setMethod("plotSignificance", signature(object="DChIPRepResults"),
 
 
 plotProfiles.DChIPRepResults <- function(object,
-                                        meanFunction = function(x){smhuber(x)$mu},
+                                        meanFunction = robust_mean,
                                         ...){
 
 # get  normalized counts

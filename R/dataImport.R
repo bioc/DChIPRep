@@ -188,9 +188,8 @@ importDataFromMatrices <- function(inputData, chipData, sampleTable){
     expGroups <- sampleTable$condition
 
     # input and ChIP coverage
-    covI <- apply(inputData, 2, sum)
-    covC <- apply(chipData, 2, sum)
-
+    covI <- apply(inputData, 2, function(x){ tmp = as.numeric(x);  sum(tmp)})
+    covC <- apply(chipData, 2, function(x){ tmp = as.numeric(x);  sum(tmp)})
 
     # replace zeros with 1s in the input  data
 
@@ -218,6 +217,11 @@ importDataFromMatrices <- function(inputData, chipData, sampleTable){
 
     if(!all.equal(length(levels(condition)),2) ){
     stop("There must be exactly 2 experimental groups !")
+    }
+    
+    # check whether the colnames of the input matrices match the sample IDs
+    if(any(sampleTable$sampleID != colnames(inputData)) &  any(sampleTable$sampleID != colnames(chipData)) ){
+      stop("The column names of your ChIP and Input matrices have to be equal to the sampleID column")
     }
 
     ## get the positions as row names
