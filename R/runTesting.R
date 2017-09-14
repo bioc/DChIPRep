@@ -5,7 +5,7 @@ runTesting.DChIPRepResults <- function(object,
     DESeq2Data <- estimateDispersions(DESeq2Data(object), fitType = "local")
 
     # Stat. test
-    DESeq2Data <- nbinomWaldTest(DESeq2Data)
+    DESeq2Data <- nbinomWaldTest(DESeq2Data, betaPrior = TRUE)
 
     ### Get the results
     res <- as.data.frame(DESeq2::results(DESeq2Data,lfcThreshold = lfcThreshold,

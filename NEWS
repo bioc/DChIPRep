@@ -1,3 +1,11 @@
+CHANGES IN VERSION 1.6.2
+-------------------------
+    * added  betaPrior = TRUE to nbinomWaldTest in order to keep the 
+      shrinkage of the log2 fold changes. (The shrinkage is now disabled by 
+      default in DESeq2)  
+    * Changed R dependency to R 3.4
+    * Added WholeGenome Bioc View
+
 CHANGES IN VERSION 1.6.1
 -------------------------
     * extended the importing section in the vignette a little bit
