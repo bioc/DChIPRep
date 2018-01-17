@@ -49,7 +49,13 @@ that builds on the packages `r Biocpkg("DESeq2")` and
 that allows the user to import sam files into data structures than can be used 
 with the  package.
 
-# Introduction to the pre--processing script
+# Introduction to the Python pre--processing script (no longer tested)
+
+
+**Note that the Python script is no longer tested / updated. It
+remains in the package in order to provide a data import that is similar
+to @Chabbert_2015. The function `importData_soGGi` provides a Bioconductor--only
+import--solution that is an integral part of the package.**
 
 Together with the release of the R package *DChIPRep*, we provide a python framework 
 that should allow users to generate count tables. These may then be directly 
@@ -72,6 +78,7 @@ pythonScriptsDir
 list.files(pythonScriptsDir)
 
 ```
+
 
 ## General principle
 
@@ -203,13 +210,18 @@ positions is 1000bp. This results in count tables with 2502 columns in total,
 corresponding to the basepairs up-- and downstream as well as one column for  
 for the 0 position and one column for the feature IDs.
 
-# Importing the data into R
+# Importing data matrices into R
 
 In what follows, we assume that we count nucleosomes around transcription start
 sites (TSS), that is the start of transcripts, which is also the default option
 in the preprocessing script.
 
-## Importing the output from the Python script
+## Importing the output from the Python script 
+
+**Note that the Python script is no longer tested / updated. It
+remains in the package in order to provide a data import that is similar
+to @Chabbert_2015. The function `importData_soGGi` provides a Bioconductor--only
+import--solution that is an integral part of the package.**
 
 After the  data has been preproccesed, we first need an annotation table for our
 samples that looks like this:
@@ -306,7 +318,7 @@ The imported data is again a **DChIPRepResults** object that contains
 the data as a **DESeqDataSet**.
 
 
-# Importing .bam files directly using `importData_soGGi`
+# Importing .bam files directly using `importData_soGGi` (recommended)
 
 It is also possible to use the function `importData_soGGi`, which is 
 based on the function `regionPlot` from the package  `r Biocpkg("soGGi") `
