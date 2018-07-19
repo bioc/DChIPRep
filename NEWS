@@ -1,3 +1,8 @@
+CHANGES IN VERSION 1.11.1
+-------------------------
+    * fixed unit test for plotting without replicates as DESeq2 no longer
+      supports silentl treating as replicates since version 1.22
+
 CHANGES IN VERSION 1.7.2
 -------------------------
     * added  betaPrior = TRUE to nbinomWaldTest in order to keep the 

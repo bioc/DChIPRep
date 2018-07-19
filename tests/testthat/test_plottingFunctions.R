@@ -19,6 +19,12 @@ test_that("plottingFunctions_work", {
 test_that("plottingFunctions_work_without_replicates", {
   data(testData)
   dcr <- DChIPRepResults(testData[, 3:4])
+  
+  # since version 1.22 one has to change the design explicitly
+  dds <- DESeq2Data(dcr)
+  design(dds) <- ~ 1
+  DESeq2Data(dcr) <- dds
+  
   dcr <- runTesting(dcr)
   
   resS <-plotSignificance(dcr)
